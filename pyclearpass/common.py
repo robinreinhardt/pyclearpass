@@ -16,6 +16,7 @@ class ClearPassAPILogin:
         server="",
         api_token="",
         verify_ssl=False,
+        timeout=None,
     ):
         """
         This is the class constructor for the ClearPassModule.
@@ -46,6 +47,7 @@ class ClearPassAPILogin:
         self.server = server
         self.api_token = api_token
         self.verify_ssl = False
+        self.timeout = timeout
 
     def _send_request(
         self, url, method, query="", content_response_type="application/json"
@@ -79,6 +81,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "patch":
                 response = requests.patch(
@@ -86,6 +89,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "put":
                 response = requests.put(
@@ -93,6 +97,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "get":
                 response = requests.get(
@@ -100,6 +105,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "delete":
                 response = requests.delete(
@@ -107,6 +113,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "":
                 print(
